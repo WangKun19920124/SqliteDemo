@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\SqliteClassLib\SqliteClassLib\bin\Debug\SqliteClassLib.dll
+C:\Users\Administrator\Desktop\SqliteClassLib\SqliteClassLib\bin\Debug\SqliteClassLib.pdb
+C:\Users\Administrator\Desktop\SqliteClassLib\SqliteClassLib\bin\Debug\System.Data.SQLite.dll
+C:\Users\Administrator\Desktop\SqliteClassLib\SqliteClassLib\obj\Debug\SqliteClassLib.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\SqliteClassLib\SqliteClassLib\obj\Debug\SqliteClassLib.dll
+C:\Users\Administrator\Desktop\SqliteClassLib\SqliteClassLib\obj\Debug\SqliteClassLib.pdb

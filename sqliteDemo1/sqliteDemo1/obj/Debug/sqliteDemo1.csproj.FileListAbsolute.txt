@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\bin\Debug\sqliteDemo1.exe.config
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\bin\Debug\sqliteDemo1.exe
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\bin\Debug\sqliteDemo1.pdb
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\bin\Debug\SqliteClassLib.dll
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\bin\Debug\System.Data.SQLite.dll
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.Form1.resources
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.Properties.Resources.resources
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.exe
+C:\Users\Administrator\Desktop\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.pdb
