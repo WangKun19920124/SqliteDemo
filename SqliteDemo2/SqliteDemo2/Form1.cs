@@ -20,6 +20,7 @@ namespace SqliteDemo2
         string brand = string.Empty;
         string datetime1 = string.Empty;
         string datetime2 = string.Empty;
+        SqliteClassLib.SQLiteHelper sqlite1 = new SqliteClassLib.SQLiteHelper();
         public Form1()
         {
             InitializeComponent();
@@ -29,9 +30,9 @@ namespace SqliteDemo2
         {
             int totalNum = 0;
             int OKNum = 0;
-            SqliteClassLib.SQLiteHelper sqlite1 = new SqliteClassLib.SQLiteHelper();
             sqlite1.DataBaseName = "TP";
             sqlite1.StrDataSource = "C:\\Users\\25224\\Desktop\\testDB\\";
+            sqlite1.SQLite_connect();
             using (FileStream fs = File.OpenRead("1.xls"))
             {
                 IWorkbook workbook = null;
@@ -43,6 +44,8 @@ namespace SqliteDemo2
                
                 for(int i = 0; i < sheet.LastRowNum; i++)
                 {
+                    string cmdTotal = string.Empty;
+                    string cmdOK = string.Empty;
                     row = sheet.GetRow(i);
                     if (row != null)
                     {
@@ -50,8 +53,11 @@ namespace SqliteDemo2
                         datetime1 = row.GetCell(1).ToString();
                         datetime2 = row.GetCell(2).ToString();
                     }
+                    cmdTotal = "TP WHERE `RIQI` BETWEEN '" + datetime1 + "' AND '" + datetime2 + "';";
+                    totalNum = sqlite1.SQLite_count(cmdTotal);
+                    cmdOK = "TP WHERE (`RIQI` BETWEEN '" + datetime1 + "' AND '" + datetime2 + "') AND `RESULT` = 1";
+                    OKNum = sqlite1.SQLite_count(cmdOK);
 
-                    
                 }
             }
         }
