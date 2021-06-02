@@ -19,3 +19,15 @@ D:\WorkSpace\SqliteDemo\EI41_Sqlite\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo
 D:\WorkSpace\SqliteDemo\EI41_Sqlite\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.Form1.resources
 D:\WorkSpace\SqliteDemo\EI41_Sqlite\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.Properties.Resources.resources
 D:\WorkSpace\SqliteDemo\EI41_Sqlite\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.csproj.GenerateResource.Cache
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\bin\Debug\sqliteDemo1.exe.config
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\bin\Debug\sqliteDemo1.exe
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\bin\Debug\sqliteDemo1.pdb
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\bin\Debug\System.Data.SQLite.dll
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.csprojAssemblyReference.cache
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.Form1.resources
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.Properties.Resources.resources
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.csproj.GenerateResource.cache
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.csproj.CoreCompileInputs.cache
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.csproj.CopyComplete
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.exe
+D:\WorkSpace\EI41\databaseCode\sqliteDemo1\sqliteDemo1\obj\Debug\sqliteDemo1.pdb

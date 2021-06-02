@@ -31,7 +31,7 @@ namespace sqliteDemo1
         private void button_createDataBase_Click(object sender, EventArgs e)
         {
             sqlite1.DataBaseName = "TP";
-            sqlite1.StrDataSource = "C:\\Users\\Administrator\\Desktop\\testDB\\";
+            sqlite1.StrDataSource = "C:\\Users\\25224\\Desktop\\testDB\\";
 
             if (sqlite1.SQLite_createDataBase() == true)
             {
@@ -42,7 +42,7 @@ namespace sqliteDemo1
         private void button_connect_Click(object sender, EventArgs e)
         {
             sqlite1.DataBaseName = "TP";
-            sqlite1.StrDataSource = "C:\\Users\\Administrator\\Desktop\\testDB\\";
+            sqlite1.StrDataSource = "C:\\Users\\25224\\Desktop\\testDB\\";
 
             if (sqlite1.SQLite_connect() == true)
             {
@@ -89,7 +89,7 @@ namespace sqliteDemo1
         {
             //int ms = 0;//给tiny int赋值字符串？
 
-            int total = 100;  //记录总条数，至少是4
+            int total = 1000000;  //记录总条数，至少是4
             //string cmd1 = "CAMERA1 (BRAND,RESULT,RIQI) VALUES (@brand,@result,datetime('now','localtime'));";
             //string cmd2 = "CAMERA2 (BRAND,RESULT,RIQI) VALUES (@brand,@result,datetime('now','localtime'));";
             string cmd1 = "CAMERA1 (BRAND,RESULT,RIQI) VALUES (@brand,@result,STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'));";  //时间戳精确到ms
