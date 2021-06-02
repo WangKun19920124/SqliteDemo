@@ -19,6 +19,8 @@ namespace sqliteDemo1
     {
         Stopwatch st = new Stopwatch(); //计时对象
         public static SqliteClassLib.SQLiteHelper sqlite1 = new SqliteClassLib.SQLiteHelper();
+        private static object lockObj = new object();  //线程锁对象
+
 
         public Form1()
         {
@@ -86,39 +88,81 @@ namespace sqliteDemo1
         private void button_insert_Click(object sender, EventArgs e)
         {
             //int ms = 0;//给tiny int赋值字符串？
-            int total = 1000;  //记录总条数
+
+            int total = 1000000;  //记录总条数，至少是4
             string cmd1 = "CAMERA1 (BRAND,RESULT,RIQI) VALUES (@brand,@result,datetime('now','localtime'));";
-            //string cmd2 = "CAMERA2 (BRAND,RESULT,DATATIME,MS) VALUES (@brand,@result,@datatime,@ms);";
+            string cmd2 = "CAMERA2 (BRAND,RESULT,RIQI) VALUES (@brand,@result,datetime('now','localtime'));";
             SQLiteParameter[] param =
             {
                 new SQLiteParameter("@brand",DbType.String),   //DbType？MSDN上写的是SqliteType，但是找不到这个Enum
                 new SQLiteParameter("@result", DbType.Int16),
-                //new SQLiteParameter("@riqi",DbType.DateTime2),
-                //new SQLiteParameter("@ms",DbType.Int16),
             };
+            param[0].Value = "brand";
+            param[1].Value = 1;
+
+            ThreadInsert.setTotal(total);   //调用静态函数给类变量赋值
+            ThreadInsert mt1 = new ThreadInsert(cmd1,param);
+            ThreadInsert mt2 = new ThreadInsert(cmd2, param);
+            Thread thread1 = new Thread(new ThreadStart(mt1.threadInsert));
+            thread1.Name = "thread1";
+            Thread thread2 = new Thread(new ThreadStart(mt2.threadInsert));
+            thread2.Name = "thread2";
+
+            //插入开始
+            st.Start(); //计时开始
 
             param[0].Value = "brand";
             param[1].Value = 1;
-            //param[2].Value = DateTime.Now.ToString();//给DATATIME类型变量赋值
-            //param[3].Value = ms;
-            st.Start(); //计时开始
-            sqlite1.SQLite_insert(cmd1, param, "BEGIN TRANSACTION;\n", "");
-            for (int i = 1; i < total - 1; i++)
-            {
-                param[0].Value = "brand";
-                param[1].Value = i % 2;
-                //param[2].Value = DateTime.Now.ToString();//给DATATIME类型变量赋值
-                //param[3].Value = ms;
-                sqlite1.SQLite_insert(cmd1, param, "", "");
-                //Thread.Sleep(400);
-            }
-            param[0].Value = "brand";
-            param[1].Value = 1;
-            //param[2].Value = DateTime.Now.ToString();//给DATATIME类型变量赋值
-            //param[3].Value = ms;
-            sqlite1.SQLite_insert(cmd1, param, "", "\nEND TRANSACTION;");
+            sqlite1.SQLite_insert(cmd1, param, "BEGIN TRANSACTION;\n", ""); //第一条插入和最后一条插入加上事务指令
+            sqlite1.SQLite_insert(cmd2, param, "", ""); //第一条插入和最后一条插入加上事务指令
+
+            thread1.Start();
+            thread2.Start();
+            thread1.Join();
+            thread2.Join();
+
+            sqlite1.SQLite_insert(cmd1, param, "", "");
+            sqlite1.SQLite_insert(cmd2, param, "", "\nEND TRANSACTION;");
+
             st.Stop();  //计时结束
             MessageBox.Show(st.ElapsedMilliseconds.ToString());
+        }
+
+        //线程类，封装子线程函数
+        public class ThreadInsert
+        {
+            public static int total = 0;
+            //要传递给线程函数的参数
+            public string cmd { set; get; }
+            public SQLiteParameter[] param { set; get; }
+
+            public ThreadInsert(string param2, SQLiteParameter[] param3)
+            {
+                this.cmd = param2;
+                this.param = param3;
+            }
+
+            //给total赋值（静态函数给类静态变量赋值）
+            public static void setTotal(int t)
+            {
+                ThreadInsert.total = t;
+            }
+
+            //线程执行函数
+            public void threadInsert(){
+                while ((ThreadInsert.total - 4) > 0)
+                {
+                    this.param[0].Value = "brand";
+                    this.param[1].Value = ThreadInsert.total % 2;
+                    //Thread.Sleep(400);
+                    Monitor.Enter(Form1.lockObj); //加锁
+                    sqlite1.SQLite_insert(this.cmd, this.param, "", "");
+                    ThreadInsert.total--;
+                    Monitor.Exit(lockObj);  //释放锁
+
+                }
+            }
+
         }
     }
 }
