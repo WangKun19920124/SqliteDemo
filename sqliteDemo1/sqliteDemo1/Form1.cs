@@ -89,9 +89,12 @@ namespace sqliteDemo1
         {
             //int ms = 0;//给tiny int赋值字符串？
 
-            int total = 1000000;  //记录总条数，至少是4
-            string cmd1 = "CAMERA1 (BRAND,RESULT,RIQI) VALUES (@brand,@result,datetime('now','localtime'));";
-            string cmd2 = "CAMERA2 (BRAND,RESULT,RIQI) VALUES (@brand,@result,datetime('now','localtime'));";
+            int total = 100;  //记录总条数，至少是4
+            //string cmd1 = "CAMERA1 (BRAND,RESULT,RIQI) VALUES (@brand,@result,datetime('now','localtime'));";
+            //string cmd2 = "CAMERA2 (BRAND,RESULT,RIQI) VALUES (@brand,@result,datetime('now','localtime'));";
+            string cmd1 = "CAMERA1 (BRAND,RESULT,RIQI) VALUES (@brand,@result,STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'));";  //时间戳精确到ms
+            string cmd2 = "CAMERA2 (BRAND,RESULT,RIQI) VALUES (@brand,@result,STRFTIME('%Y-%m-%d %H:%M:%f', 'NOW'));";
+
             SQLiteParameter[] param =
             {
                 new SQLiteParameter("@brand",DbType.String),   //DbType？MSDN上写的是SqliteType，但是找不到这个Enum
