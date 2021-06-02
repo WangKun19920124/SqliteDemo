@@ -125,7 +125,7 @@ namespace sqliteDemo1
             sqlite1.SQLite_insert(cmd2, param, "", "\nEND TRANSACTION;");
 
             st.Stop();  //计时结束
-            MessageBox.Show(st.ElapsedMilliseconds.ToString());
+            MessageBox.Show("插入耗时：" + st.ElapsedMilliseconds.ToString() + "ms");
         }
 
         //线程类，封装子线程函数
