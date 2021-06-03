@@ -33,6 +33,7 @@
             this.button_createTable = new System.Windows.Forms.Button();
             this.button_Index = new System.Windows.Forms.Button();
             this.button_insert = new System.Windows.Forms.Button();
+            this.button_count = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_createDataBase
@@ -85,11 +86,22 @@
             this.button_insert.UseVisualStyleBackColor = true;
             this.button_insert.Click += new System.EventHandler(this.button_insert_Click);
             // 
+            // button_count
+            // 
+            this.button_count.Location = new System.Drawing.Point(53, 332);
+            this.button_count.Name = "button_count";
+            this.button_count.Size = new System.Drawing.Size(75, 23);
+            this.button_count.TabIndex = 5;
+            this.button_count.Text = "计数";
+            this.button_count.UseVisualStyleBackColor = true;
+            this.button_count.Click += new System.EventHandler(this.button_search_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 438);
+            this.Controls.Add(this.button_count);
             this.Controls.Add(this.button_insert);
             this.Controls.Add(this.button_Index);
             this.Controls.Add(this.button_createTable);
@@ -108,6 +120,7 @@
         private System.Windows.Forms.Button button_createTable;
         private System.Windows.Forms.Button button_Index;
         private System.Windows.Forms.Button button_insert;
+        private System.Windows.Forms.Button button_count;
     }
 }
 

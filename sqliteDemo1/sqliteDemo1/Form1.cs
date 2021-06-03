@@ -31,7 +31,7 @@ namespace sqliteDemo1
         private void button_createDataBase_Click(object sender, EventArgs e)
         {
             sqlite1.DataBaseName = "TP";
-            sqlite1.StrDataSource = "C:\\Users\\25224\\Desktop\\testDB\\";
+            sqlite1.StrDataSource = "C:\\Users\\Administrator\\Desktop\\testDB\\";
 
             if (sqlite1.SQLite_createDataBase() == true)
             {
@@ -42,7 +42,7 @@ namespace sqliteDemo1
         private void button_connect_Click(object sender, EventArgs e)
         {
             sqlite1.DataBaseName = "TP";
-            sqlite1.StrDataSource = "C:\\Users\\25224\\Desktop\\testDB\\";
+            sqlite1.StrDataSource = "C:\\Users\\Administrator\\Desktop\\testDB\\";
 
             if (sqlite1.SQLite_connect() == true)
             {
@@ -165,6 +165,16 @@ namespace sqliteDemo1
 
                 }
             }
+
+        }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            sqlite1.DataBaseName = "TP";
+            sqlite1.StrDataSource = "C:\\Users\\Administrator\\Desktop\\testDB\\";
+            sqlite1.SQLite_connect();
+            string cmd = "CAMERA1 WHERE (`RIQI` BETWEEN '2021-06-03 02:10:52' AND '2021-06-03 02:10:57') AND `RESULT` = 1;";
+            int n = sqlite1.SQLite_count(cmd);
 
         }
     }

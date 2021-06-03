@@ -32,3 +32,6 @@ C:\Users\25224\Desktop\SQLiteDemo\WindowsFormsApplication1\WindowsFormsApplicati
 C:\Users\Administrator\Desktop\库与测试未分离\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\Administrator\Desktop\库与测试未分离\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\Administrator\Desktop\库与测试未分离\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\WorkSpace\SqliteDemo\EI41_Sqlite\库与测试未分离V1.0\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\WorkSpace\SqliteDemo\EI41_Sqlite\库与测试未分离V1.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\WorkSpace\SqliteDemo\EI41_Sqlite\库与测试未分离V1.0\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb

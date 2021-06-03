@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI">
       <HintPath>..\NPOI.dll</HintPath>
     </Reference>
