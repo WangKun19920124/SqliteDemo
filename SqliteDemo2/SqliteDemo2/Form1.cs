@@ -27,7 +27,7 @@ namespace SqliteDemo2
         int OKNum = 0;
         int numOfRows = 0;
         SqliteClassLib.SQLiteHelper sqlite1 = new SqliteClassLib.SQLiteHelper();
-        FileStream filestream = new FileStream(@"C:\Users\Administrator\Desktop\table2.xlsx", FileMode.Create);
+        FileStream filestream = new FileStream(@"C:\Users\25224\Desktop\table2.xlsx", FileMode.OpenOrCreate);   
         XSSFWorkbook wk = new XSSFWorkbook();
         Stopwatch st = new Stopwatch(); //计时对象
 
@@ -44,7 +44,7 @@ namespace SqliteDemo2
             sqlite1.SQLite_connect();
             
 
-            using (FileStream fs = File.OpenRead("C:\\Users\\Administrator\\Desktop\\table1.xlsx"))
+            using (FileStream fs = File.OpenRead(@"C:\Users\25224\Desktop\table1.xlsx"))
             {
                 IWorkbook workbook = null;
                 workbook = new XSSFWorkbook(fs);    //xlsx
@@ -78,7 +78,7 @@ namespace SqliteDemo2
                                     //string.Format("{yyyy-MM-dd HH:mm:ss}", datetime1);
                                     //datetime2 = row.GetCell(2);
                                     brand = (String)GetCellValue(row.GetCell(0));
-                                    temp1 = (DateTime)GetCellValue(row.GetCell(1));
+                                    temp1 = (DateTime)GetCellValue(row.GetCell(1)); //row.GetCell类型是
                                     temp2 = (DateTime)GetCellValue(row.GetCell(2));
                                     datetime1 = temp1.ToString("yyyy-MM-dd HH:mm:ss");
                                     datetime2 = temp2.ToString("yyyy-MM-dd HH:mm:ss");
@@ -95,8 +95,8 @@ namespace SqliteDemo2
                                 cmdOK = "CAMERA1 WHERE `BRAND`= " + brand + " AND (`RIQI` BETWEEN '" + datetime1 + "' AND '" + datetime2 + "') AND `RESULT` = 1;";
                                 OKNum = sqlite1.SQLite_count(cmdOK);
 
-                                IRow row2;
-                                ICell cell;
+                                IRow row2 = null;
+                                ICell cell = null;
                                 row2 = isheet.CreateRow(j);
                                 cell = row2.CreateCell(0);
                                 cell.SetCellValue(brand);
@@ -123,6 +123,7 @@ namespace SqliteDemo2
             
         }
 
+        //在读取文件时大都会判断单元格类型，方式大同小异，只有日期类型不同。
         public object GetCellValue(ICell cell)
         {
             object value = null;
@@ -134,7 +135,7 @@ namespace SqliteDemo2
                     {
                         case CellType.Numeric:
                             // Date comes here
-                            if (DateUtil.IsCellDateFormatted(cell))
+                            if (DateUtil.IsCellDateFormatted(cell)) //默认日期类型的单元格在NPOI都认为是数值类型（CellType.Numeric）在高版本中用HSSFDateUtil.IsCellDateFormatted(cell)  来判断
                             {
                                 value = cell.DateCellValue;
                             }
